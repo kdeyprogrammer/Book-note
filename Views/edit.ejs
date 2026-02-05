@@ -1,0 +1,56 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="min-vh-100 d-flex justify-content-center align-items-center">
+   <div class=" card shadow-sm" style="width: 600px;">
+    <div class="card-header bg-primary text-light">
+        <h3 >Edit Book</h3>
+    </div>
+    <div class="card-body">
+        <form action="/edit/<%= book.book_id %>" method="POST">
+            <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" 
+          name="title" placeholder="Enter book title" required value="<%=book.title %>">
+        </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input type="text" class="form-control" id="author" name="author" placeholder="Enter author name" required  value="<%=book.author %>">
+        </div>
+
+        <div class="mb-3">
+          <label for="note" class="form-label">Notes</label>
+          <textarea class="form-control" id="note" name="note" placeholder="Enter your notes" rows="3" ><%=book.note %></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating</label>
+          <input type="number" class="form-control" id="rating" name="rating" placeholder="Enter rating (1-10)" min="1" max="10" required value="<%=book.rating %>">
+        </div>
+
+        <div class="mb-3">
+          <label for="isbn" class="form-label">ISBN</label>
+          <input type="text" class="form-control" id="isbn" name="isbn" placeholder="Enter ISBN" value="<%=book.isbn %>">
+        </div>
+
+        <div class="mb-3">
+          <label for="read_date" class="form-label">Read Date</label>
+          <input type="date" class="form-control" id="read_date" name="read_date" value="<%=book.read_date?.toISOString().split("T")[0]  %>">
+        </div>
+        
+        <div class="mb-3">
+          <label for="description" class="form-label">Discription</label>
+          <textarea type="text" class="form-control" id="description" name="description" placeholder="Enter Description" ><%=book.description %></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Edit Book</button>
+        </form>
+
+    </div>
+
+   </div>
+
+</div>
+
+<%- include("partials/footer.ejs")%>
+
